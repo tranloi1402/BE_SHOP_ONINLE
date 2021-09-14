@@ -23,9 +23,10 @@ const schema = new mongoose.Schema(
             required: true
         },
         status: {
-            type: String,
-            required: true
-        },
+            type: Number,
+            required: true,
+            default: 1
+        }
     },
     { timestamp: true }
 );

@@ -4,36 +4,32 @@ const schema = new mongoose.Schema(
     {
         codeOrder: {
             type: String,
-            default: null
+            required: true
         },
         product: [
             {
-                name: {
-                    type: String,
-                    required: true
-                },
                 image: {
                     type: String,
                     required: true,
                 },
+                name: {
+                    type: String,
+                    required: true
+                },
                 price: {
-                    type: Number,
+                    type: String,
                     required: true,
                 },
                 quantity: {
-                    type: Number,
+                    type: String,
                     required: true,
                 },
-                total: {
-                    type: Number,
+                _id: {
+                    type: String,
                     required: true,
-                },
+                }
             }
         ],
-        useId: {
-            type: String,
-            required: true,
-        },
         nameUse: {
             type: String,
             required: true,

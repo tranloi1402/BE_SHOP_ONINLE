@@ -37,17 +37,13 @@ export const getAllOrder = async (req, res) => {
 
 export const createOrder = async (req, res) => {
     try {
-        // console.log(req.body);
         const {
+            addressUse,
             codeOrder,
-            product,
-            useId,
             nameUse,
             phoneUse,
-            addressUse,
-            status
+            product
         } = req.body;
-        // console.log(use);
         if (nameUse === '') {
             res.status(200).json('Bạn không được để tên trống!!!');
         }
@@ -59,17 +55,16 @@ export const createOrder = async (req, res) => {
         }
 
         const order = new OrdersModel({
+            addressUse,
             codeOrder,
-            product,
-            useId,
             nameUse,
             phoneUse,
-            addressUse,
-            status
+            product,
+            status : 1
         });
         const save = await order.save();
         console.log(save);
-        res.status(200).json('Thanh toán thành công!!!!');
+        res.status(200).json(save);
     } catch (error) {
         res.status(500).json({ error: error });
     }
